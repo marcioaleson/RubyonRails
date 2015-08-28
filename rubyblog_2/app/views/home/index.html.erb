@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rubyblog2</title>
+</head>
+<body>
+<div style="border: 1px solid #000;">
+<h1 align="center">Home</h1>
+</div>
+<div style="border: 1px solid #000;width:48%;align:justify;display:table;float:left;">
+<p id="notice"><%= notice %></p>
+<div style="border: 1px solid #000;margin: 0 0 0 0;">
+<h1 align="center">Listing Authors</h1>
+</div>
+<table border="solid" width="100%">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Bio</th>
+      <th>Password</th>
+      <th>Email</th>
+      <th colspan="3">Settings</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.first_name %></td>
+        <td><%= author.last_name %></td>
+        <td><%= author.bio %></td>
+        <td><%= author.password %></td>
+        <td><%= author.email %></td>
+        <td><%= link_to 'Show', author %></td>
+        <td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<p><%= link_to 'Create author',authors_path %></p>
+</div>
+<div style="border: 1px solid #000;width:48%;align:justify;display:table;float:right;">
+<p id="notice"><%= notice %></p>
+<div style="border: 1px solid #000;margin: 0 0 0 0;">
+<h1 align="center">Listing categories</h1>
+</div>
+
+<table border="solid" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3">Settings</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<p><%= link_to 'Create categories',categories_path %></p>
+</div>
+
+</body>
+</html>

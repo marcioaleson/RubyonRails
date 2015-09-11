@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => 'form-control', :row => '3' %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :class => 'form-control', :row => '3' %>
   </div>
   <div class="field">
     <%= f.label :author_id %><br>
-        <%= select_tag "post[author_id]", options_for_select(Author.all.map { |author| [author.first_name, author.id]}) %>
+        <%= select_tag "post[author_id]", options_for_select(Author.all.map { |author| [author.first_name, author.id]}), :class => "form-control"%>
   </div>
 
      <div class="field">
       <%= f.label :category_id %><br>
-        <%= select_tag "post[category_id]", options_for_select(Category.all.map { |category| [category.name, category.id]}) %>
+        <%= select_tag "post[category_id]", options_for_select(Category.all.map { |category| [category.name, category.id]}), :class => "form-control"%>
   </div>
 
   <div class="actions">

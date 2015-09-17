@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'login/index'
+
+  get 'signup/index'
+
+  get 'about/index'
+
+  get 'contact/index'
+
   get 'home/index'
 
   resources :comments

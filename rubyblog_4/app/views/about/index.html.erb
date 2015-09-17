@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -41,7 +40,7 @@
                     </li>
                     <li>
                          <%= link_to categories_path do%>
-                           <span class="glyphicon glyphicon-list-alt">Categories</span>
+                           <span class="glyphicon glyphicon-list-alt"> Categories</span>
                         <% end -%>
                     </li>
                     <li>
@@ -76,41 +75,87 @@
         <!-- /.container -->
     </nav>
 
-    <hr>
-
+    <!-- Page Content -->
     <div class="container">
-	<p id="notice"><%= notice %></p>
 
-	<p>
-	  <strong>Title:</strong>
-	  <%= @post.title %>
-	</p>
+        <div class="row">
 
-	<p>
-	  <strong>Body:</strong>
-	  <%= @post.body %>
-	</p>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
 
-	<p>
-	  <strong>Author:</strong>
-	  <%= @post.author.first_name%>
-	</p>
+                <h1 class="page-header">
+                    About
+                </h1>
+					<p>
+						Ruby on Rails, or simply Rails, is a web application framework written in Ruby under MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer, and HTML, CSS and JavaScript for display and user interfacing. In addition to MVC, Rails emphasizes the use of other well-known software engineering patterns and paradigms, including convention over configuration (CoC), don't repeat yourself (DRY), and the active record pattern.
+					</p>
+                <hr>
 
-	<p>
-	  <strong>Category:</strong>
-	  <%= @post.category.name %>
-	</p>
+            </div>
 
-	<%= link_to 'Edit', edit_post_path(@post), :class=>'btn btn-primary'  %>
-	<%= link_to 'Back', posts_path, :class=>'btn btn-primary'  %>
- 
-     <h2>Comments</h2>
-    <%= render @post.comments %>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
 
-    <h2> Add a comment:</h2>
-    <%= render 'comments/form' %>
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
 
-    <hr>
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <table>
+
+                              <tbody>
+                                <% @categories.each do |category| %>
+                                  <tr>
+                                    <td><%= link_to category.name, category %></td>
+                                  </tr>
+                                <% end %>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Blog authors Well -->
+                <div class="well">
+                    <h4>Blog Authors</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <table>
+
+                              <tbody>
+                                <% @authors.each do |author| %>
+                                  <tr>
+                                    <td><%= link_to author.first_name, author %></td>
+                                  </tr>
+                                <% end %>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
 
         <!-- Footer -->
         <footer>
@@ -127,5 +172,4 @@
     <!-- /.container -->
 
 </body>
-
 </html>

@@ -1,0 +1,19 @@
+    <h2><p class="text-center"><%= post.title %></p></h2>
+
+    <hr>
+
+    <div class="panel panel-default">
+     <div class="panel-body">
+	<p class="text-justify">
+	  <%= post.body %>
+	</p>
+
+<p>
+	<%= link_to 'Show', post, :class=>'btn btn-primary'  %>
+	<% if current_user.id == post.user_id %>
+	<%= link_to 'Edit', edit_post_path(post), :class=>'btn btn-primary'  %>
+	<%= link_to 'Destroy post', [post.category, post], method: :delete, data: {confirm: 'Are you sure?'}, :class=>'btn btn-primary'  %>
+	<% end -%>
+</p>
+</div>
+</div>

@@ -90,8 +90,8 @@ a {
 	color: #9eafba;
 }
 
-.button {
-	outline: none;
+button {
+	outline: 0;
 	background: transparent;
 	border: 1px solid #d6dce0;
 	padding: .5em 1.5em;

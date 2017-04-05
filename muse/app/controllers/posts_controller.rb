@@ -11,8 +11,9 @@ class PostsController < ApplicationController
 
     def show
     	@post = Post.find(params[:id])
-        @comments = Comment.where(post_id: @post)
-        
+      @comments = Comment.where(post_id: @post)
+      @random_post = Post.where.not(id: @post).order("RANDOM()").first  
+
     end
 
     def create
@@ -21,7 +22,7 @@ class PostsController < ApplicationController
     	if @post.save
     		redirect_to @post
     	else
-            render 'new'    		
+            render 'new'
     	end
     end
 
@@ -33,8 +34,8 @@ class PostsController < ApplicationController
         if @post.update(post_params)
             redirect_to @post
         else
-            render 'edit'            
-        end    	
+            render 'edit'
+        end
     end
 
     def destroy
